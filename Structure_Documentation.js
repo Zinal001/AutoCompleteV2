@@ -269,3 +269,171 @@ Structure_Power_Spawn.prototype =
      */
     transferEnergy: function(target, amount) { }
 };
+
+/**
+ * @class
+ * @constructor
+ * @extends {Structure}
+ */
+Structure_Rampart = function() { };
+
+Structure_Rampart.prototype =
+{
+    /**
+     * The amount of game ticks when this rampart will lose some hit points.
+     *
+     * @type {number}
+     */
+    ticksToDecay: 0
+};
+
+/**
+ * @class
+ * @constructor
+ * @extends {Structure}
+ */
+Structure_Road = function() { };
+
+Structure_Road.prototype =
+{
+    /**
+     * The amount of game ticks when this road will lose some hit points.
+     *
+     * @type {number}
+     */
+    ticksToDecay: 0
+};
+
+/**
+ * @class
+ * @constructor
+ * @extends {Structure}
+ */
+Structure_Storage = function() { };
+
+Structure_Storage.prototype =
+{
+    /**
+     * An object with the storage contents.
+     *
+     * @type {object}
+     */
+    store: {
+        /**
+         * The amount of energy resource units.
+         *
+         * @type {number}
+         */
+        energy: 0,
+
+        /**
+         * The amount of power resource units if present, undefined otherwise.
+         *
+         * @type {number|undefined}
+         */
+        power: 0
+    },
+
+    /**
+     * The total amount of resources the storage can contain.
+     *
+     * @type {number}
+     */
+    storeCapacity: 0,
+
+    /**
+     * Transfer resource from this storage to a creep. The target has to be at adjacent square.
+     *
+     * @param {Creep} target The target object.
+     * @param {string} resourceType One of the RESOURCE_* constants.
+     * @param {number} [amount] The amount of resources to be transferred. If omitted, all the available amount is used.
+     *
+     * @return {number|OK|ERR_NOT_OWNER|ERR_NOT_ENOUGH_RESOURCES|ERR_INVALID_TARGET|ERR_FULL|ERR_NOT_IN_RANGE|ERR_INVALID_ARGS}
+     */
+    transfer: function(target, resourceType, amount) { },
+
+    /**
+     * An alias for storage.transfer(target, RESOURCE_ENERGY, amount).
+     * @deprecated
+     *
+     * @param {Creep} target The target object.
+     * @param {number} [amount] The amount of resources to be transferred. If omitted, all the available amount is used.
+     */
+    transferEnergy: function(target, amount) { }
+};
+
+/**
+ * @class
+ * @constructor
+ * @extends {Structure}
+ */
+Structure_Tower = function() { };
+
+Structure_Tower.prototype =
+{
+    /**
+     * The amount of energy containing in this structure.
+     *
+     * @type {number}
+     */
+    energy: 0,
+
+    /**
+     * The total amount of energy this structure can contain.
+     *
+     * @type {number}
+     */
+    energyCapacity: 0,
+
+    /**
+     * Remotely attack any creep in the room.
+     * Consumes 10 energy units per tick.
+     * Attack power depends on the distance to the target: from 600 hits at range 10 to 300 hits at range 40.
+     *
+     * @param {Creep} target The target creep.
+     *
+     * @return {number|OK|ERR_NOT_ENOUGH_RESOURCES|ERR_INVALID_TARGET|ERR_RCL_NOT_ENOUGH}
+     */
+    attack: function(target) { },
+
+    /**
+     * Remotely heal any creep in the room.
+     * Consumes 10 energy units per tick.
+     * Heal power depends on the distance to the target: from 400 hits at range 10 to 200 hits at range 40.
+     *
+     * @param {Creep} target The target creep.
+     *
+     * @return {number|OK|ERR_NOT_ENOUGH_RESOURCES|ERR_INVALID_TARGET|ERR_RCL_NOT_ENOUGH}
+     */
+    heal: function(target) { },
+
+    /**
+     * Remotely repair any structure in the room.
+     * Consumes 10 energy units per tick.
+     * Repair power depends on the distance to the target: from 600 hits at range 10 to 300 hits at range 40.
+     *
+     * @param {Spawn|Structure} target The target structure.
+     *
+     * @return {number|OK|ERR_NOT_ENOUGH_RESOURCES|ERR_INVALID_TARGET|ERR_RCL_NOT_ENOUGH}
+     */
+    repair: function(target) { }
+};
+
+/**
+ * @class
+ * @constructor
+ * @extends {Structure}
+ */
+Structure_Wall = function() { };
+
+Structure_Wall.prototype =
+{
+    /**
+     * The amount of game ticks when the wall will disappear
+     *
+     * @note only for automatically placed border walls at the start of the game.
+     *
+     * @type {number}
+     */
+    ticksToLive: 0
+};

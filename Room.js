@@ -142,7 +142,7 @@ Room.prototype =
     /**
      * Find all objects of the specified type in the room.
      *
-     * @param {number|FIND_CREEPS|FIND_MY_CREEPS|FIND_HOSTILE_CREEPS|FIND_MY_SPAWNS|FIND_HOSITLE_SPAWNS|FIND_SOURCES|FIND_SOURCES_ACTIVE|FIND_DROPPED_RESOURCES|
+     * @param {number|FIND_CREEPS|FIND_MY_CREEPS|FIND_HOSTILE_CREEPS|FIND_MY_SPAWNS|FIND_HOSTILE_SPAWNS|FIND_SOURCES|FIND_SOURCES_ACTIVE|FIND_DROPPED_RESOURCES|
      *         FIND_STRUCTURES|FIND_MY_STRUCTURES|FIND_HOSTILE_STRUCTURES|FIND_FLAGS|FIND_CONSTRUCTION_SITES|FIND_MY_CONSTRUCTION_SITES|FIND_EXIT_TOP|FIND_EXIT_RIGHT|
      *         FIND_EXIT_BOTTOM|FIND_EXIT_LEFT|FIND_EXIT} type
      * @param {object} [opts]
@@ -182,7 +182,7 @@ Room.prototype =
      *                                        The default value is 1.
      * @param {boolean} [opts.serialize] If true, the result path will be serialized using Room.serializePath. The default is false.
      *
-     * @param {object[]} An array with path steps in the following format:
+     * @return {object[]} An array with path steps in the following format:
      *  [
             { x: 10, y: 5, dx: 1,  dy: 0, direction: RIGHT },
             { x: 10, y: 6, dx: 0,  dy: 1, direction: BOTTOM },
